@@ -10,20 +10,20 @@
 
 #calender, #timePeriod, #monday, #tuesday, #wednesday, #thursday, #friday, #saturday, #sunday
 {
-  border: 1px solid black;
+  border: 1px solid black;          /* Creates a solid border line */
 }
 
-#scheduler
-{
-  text-align: right;
-  border: 1px solid black;
-}
-
-#monday, #tuesday, #wednesday, #thursday, #friday, #saturday, #sunday
-{
-  width: 100px;
-}
 #timePeriod
 {
-  /* width: 9%; */
+  width: 6%;
+}
+
+#calender
+{
+  width: 100%;
+}
+
+.cell
+{
+    border: 1px solid black;          /* Creates a solid border line */
 }
