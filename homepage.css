@@ -1,0 +1,29 @@
+#header
+{
+  font-weight: bold;
+  font-size: 35px;
+  font-style: italic;
+  letter-spacing: 1px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#calender, #timePeriod, #monday, #tuesday, #wednesday, #thursday, #friday, #saturday, #sunday
+{
+  border: 1px solid black;          /* Creates a solid border line */
+}
+
+#timePeriod
+{
+  width: 6%;
+}
+
+#calender
+{
+  width: 100%;
+}
+
+.cell
+{
+    border: 1px solid black;          /* Creates a solid border line */
+}
