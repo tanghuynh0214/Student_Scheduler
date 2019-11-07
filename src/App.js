@@ -21,7 +21,7 @@ function timeRows(){
   var rows = []
   var earlyBound = 0;//[0,23] and earlyBound < lateBound
   var lateBound = 23;//[0,23] and earlyBound < lateBound
-  for(var i = earlyBound; i < lateBound; i++) {
+  for(var i = earlyBound; i < lateBound + 1; i++) {
     rows.push(timeRow(i));
   }
   return rows;
