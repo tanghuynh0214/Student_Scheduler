@@ -19,9 +19,9 @@ function timeRow(time){
 
 function timeRows(){
   var rows = []
-  var earlyBound = 0;//[0,23] and amBound < pmBound
-  var lateBound = 11;//[0,11]
-  for(var i = earlyBound; i < (13 + lateBound); i++) {
+  var earlyBound = 0;//[0,23] and earlyBound < lateBound
+  var lateBound = 23;//[0,23] and earlyBound < lateBound
+  for(var i = earlyBound; i < lateBound; i++) {
     rows.push(timeRow(i));
   }
   return rows;
