@@ -10,14 +10,18 @@
   <?php include 'dbconnect.php';
   echo "db conencted succesfully";
   ?>
+
+  <!-- Button row -->
+  <div class="buttonContent">
+    <div class = "button1">
+      <a href="mySchedule.html"> My Schedules </a>
+    </div>
+    <div class="button2">
+      <a href="http://speaksnas1.synology.me/auth"> Login </a>
+    </div>
+  </div>
   <div id="scheduler">
-  <table id = "buttonz">
-	<tr>
-		<th><button type="button">My Schedules</button></th>
-		<th><button type="button">Edit Schdules</button></th>
-	</tr>
-  </table>
-  <br>
+
     <table id = "calender">
       <!-- Header row -->
       <tr>
@@ -163,7 +167,7 @@
         </tr>
 
       </tr>
-      
+
     </table>
   </div>
 </body>
