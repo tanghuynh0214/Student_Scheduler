@@ -3,11 +3,21 @@
   <title>Student Scheduler</title>
   <link rel="stylesheet" type = "text/css" href="homepage.css">
   <div id = "header">
-    <p> Student Schedular </p>
+    <p> Student Scheduler </p>
   </div>
 </head>
-<bo>
+<body>
+  <?php include 'dbconnect.php';
+  echo "db conencted succesfully";
+  ?>
   <div id="scheduler">
+  <table id = "buttonz">
+	<tr>
+		<th><button type="button">My Schedules</button></th>
+		<th><button type="button">Edit Schdules</button></th>
+	</tr>
+  </table>
+  <br>
     <table id = "calender">
       <!-- Header row -->
       <tr>
@@ -19,90 +29,6 @@
         <th id = "thursday">Thursday</th>
         <th id = "friday">Friday</th>
         <th id = "saturday">Saturday</th>
-      </tr>
-
-      <!-- 1AM Data row -->
-      <tr>
-        <td class = "cell"> 01:00 AM </td>
-        <td class = "cell"></td>
-        <td class = "cell"></td>
-        <td class = "cell"></td>
-        <td class = "cell"></td>
-        <td class = "cell"></td>
-        <td class = "cell"></td>
-        <td class = "cell"></td>
-      </tr>
-
-      <!-- 2AM Data row -->
-      <tr>
-        <td class = "cell"> 02:00 AM </td>
-        <td class = "cell"></td>
-        <td class = "cell"></td>
-        <td class = "cell"></td>
-        <td class = "cell"></td>
-        <td class = "cell"></td>
-        <td class = "cell"></td>
-        <td class = "cell"></td>
-      </tr>
-
-      <!-- 3AM Data row -->
-      <tr>
-        <td class = "cell"> 03:00 AM </td>
-        <td class = "cell"></td>
-        <td class = "cell"></td>
-        <td class = "cell"></td>
-        <td class = "cell"></td>
-        <td class = "cell"></td>
-        <td class = "cell"></td>
-        <td class = "cell"></td>
-      </tr>
-
-      <!-- 4AM Data row -->
-      <tr>
-        <td class = "cell"> 04:00 AM </td>
-        <td class = "cell"></td>
-        <td class = "cell"></td>
-        <td class = "cell"></td>
-        <td class = "cell"></td>
-        <td class = "cell"></td>
-        <td class = "cell"></td>
-        <td class = "cell"></td>
-      </tr>
-
-      <!-- 5AM Data row -->
-      <tr>
-        <td class = "cell"> 05:00 AM </td>
-        <td class = "cell"></td>
-        <td class = "cell"></td>
-        <td class = "cell"></td>
-        <td class = "cell"></td>
-        <td class = "cell"></td>
-        <td class = "cell"></td>
-        <td class = "cell"></td>
-      </tr>
-
-      <!-- 6AM Data row -->
-      <tr>
-        <td class = "cell"> 06:00 AM </td>
-        <td class = "cell"></td>
-        <td class = "cell"></td>
-        <td class = "cell"></td>
-        <td class = "cell"></td>
-        <td class = "cell"></td>
-        <td class = "cell"></td>
-        <td class = "cell"></td>
-      </tr>
-
-      <!-- 7AM Data row -->
-      <tr>
-        <td class = "cell"> 07:00 AM </td>
-        <td class = "cell"></td>
-        <td class = "cell"></td>
-        <td class = "cell"></td>
-        <td class = "cell"></td>
-        <td class = "cell"></td>
-        <td class = "cell"></td>
-        <td class = "cell"></td>
       </tr>
 
       <!-- 8AM Data row -->
@@ -236,78 +162,12 @@
           <td class = "cell"></td>
         </tr>
 
-        <!-- 7PM Data row -->
-        <tr>
-          <td class = "cell"> 07:00 PM </td>
-          <td class = "cell"></td>
-          <td class = "cell"></td>
-          <td class = "cell"></td>
-          <td class = "cell"></td>
-          <td class = "cell"></td>
-          <td class = "cell"></td>
-          <td class = "cell"></td>
-        </tr>
-
-        <!-- 8PM Data row -->
-        <tr>
-          <td class = "cell"> 08:00 PM </td>
-          <td class = "cell"></td>
-          <td class = "cell"></td>
-          <td class = "cell"></td>
-          <td class = "cell"></td>
-          <td class = "cell"></td>
-          <td class = "cell"></td>
-          <td class = "cell"></td>
-        </tr>
-
-        <!-- 9PM Data row -->
-        <tr>
-          <td class = "cell"> 09:00 PM </td>
-          <td class = "cell"></td>
-          <td class = "cell"></td>
-          <td class = "cell"></td>
-          <td class = "cell"></td>
-          <td class = "cell"></td>
-          <td class = "cell"></td>
-          <td class = "cell"></td>
-        </tr>
-
-        <!-- 10PM Data row -->
-        <tr>
-          <td class = "cell"> 10:00 PM </td>
-          <td class = "cell"></td>
-          <td class = "cell"></td>
-          <td class = "cell"></td>
-          <td class = "cell"></td>
-          <td class = "cell"></td>
-          <td class = "cell"></td>
-          <td class = "cell"></td>
-        </tr>
-
-        <!-- 11PM Data row -->
-        <tr>
-          <td class = "cell"> 11:00 PM </td>
-          <td class = "cell"></td>
-          <td class = "cell"></td>
-          <td class = "cell"></td>
-          <td class = "cell"></td>
-          <td class = "cell"></td>
-          <td class = "cell"></td>
-          <td class = "cell"></td>
-        </tr>
-
-        <!-- 12AM Data row -->
-        <tr>
-          <td class = "cell"> 12:00 AM </td>
-          <td class = "cell"></td>
-          <td class = "cell"></td>
-          <td class = "cell"></td>
-          <td class = "cell"></td>
-          <td class = "cell"></td>
-          <td class = "cell"></td>
-          <td class = "cell"></td>
       </tr>
+      
     </table>
   </div>
-</bo>
+</body>
+<footer>
+        <small>&copy;Library Group 5 - Student Scheduler FA2019</small>
+</footer>
 </html>
