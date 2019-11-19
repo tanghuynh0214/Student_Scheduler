@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<link rel="stylesheet" type="text/css" href="auth.css">
+
+<head>
+    <title>Authentication</title>
+    <div id="header">
+        <p>Authentication</p>
+    </div>
+</head>
+
+<body>
+    <input type="checkbox" id="form-switch">
+
+    <form id="login-form" action="login.php" method="POST">
+        <label for="form-switch"><span>Click Here to Register</span></label>
+        <br>
+        <input type="text" placeholder="Enter email" name="email" required>
+        <br>
+        <input type="password" placeholder="Enter password" name="password" required>
+        <br>
+        <button type="submit">Login</button>
+        <button type="button" class="forgot">Forgot Password</button>
+    </form>
+
+    <form id="register-form" action="register.php" method="POST">
+        <label for="form-switch"><span>Click Here to Login</span></label>
+        <br>
+        <input type="text" placeholder="Enter email" name="email" required>
+        <br>
+        <input type="password" placeholder="Enter password" name="password" required>
+        <br>
+        <input type="password" placeholder="Enter password again" name="password" required>
+        <br>
+        <button type="submit">Register</button>
+    </form>
+</body>
+
+<footer>
+        <small>&copy;Library Group 5 - Student Scheduler FA2019</small>
+</footer>
+
+</html>
