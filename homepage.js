@@ -37,7 +37,7 @@ for(var i = 0; i < row; i++)
       {
           table += '<td>' + '0' + actualTime + ':00 PM' + '</td>';
       }
-      else if(startTime <= 24 && actualTime >= 10)
+      else if(startTime < 24 && actualTime >= 10)
       {
         table += '<td>' + actualTime + ':00 PM' + '</td>';
       }
@@ -50,4 +50,4 @@ for(var i = 0; i < row; i++)
   }
   table += '</tr>';
 }
-document.write('<table border = 1>' + table + '</table>');
+document.write("<table border = '1' id = 'calender'>" + table + '</table>');
