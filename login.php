@@ -38,11 +38,11 @@ catch(PDOException $e) {
 }
 
 // run SQL statement to fetch credentials with matching email
-$stmt = $conn->query("SELECT * FROM auth WHERE email='$in_email'");
+$stmt = $conn->prepare('SELECT * FROM auth WHERE email=:email');
+$stmt->execute(['email' => $in_email]);
 while ($row = $stmt->fetch())
 {
-    echo $row['email'] . "<br>";
-    echo $row['password'] . "<br>";
+    echo "Password for $in_email is " . $row['password'] . "<br>";
 }
 
 ?>
