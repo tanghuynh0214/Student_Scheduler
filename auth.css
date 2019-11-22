@@ -3,7 +3,7 @@ form
     text-align: center;
 }
 
-input[type=text], input[type=password]
+input[type=email], input[type=password]
 {
     width: auto;
     padding: 10px 24px;

@@ -5,7 +5,7 @@
 <?php
 
 // database information
-$host = "localhost";
+$host = "localhost:3307";
 $db = "student_scheduler";
 $db_username = "root";
 $db_password = "";
