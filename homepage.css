@@ -104,3 +104,15 @@ footer
 	margin-left: 30%;
 	margin-right: 30%;
 }
+
+/* #tblRow1, #tblRow2, #tblRow3, #tblRow4, #tblRow5, #tblRow6, #tblRow7, #tblRow8, #tblRow9, #tblRow10
+{
+	padding-top: 12px;
+  padding-bottom: 12px;
+} */
+
+.dataCells
+{
+	padding-top: 120px;
+	padding-bottom: 120px;
+}
