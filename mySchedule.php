@@ -40,7 +40,7 @@
             echo "Connection Failed: " . $e->getMessage();
         }
 
-        $stmt = $conn->prepare("SELECT *  FROM schedules WHERE email = {$_SESSION['email']}");
+        $stmt = $conn->prepare("SELECT *  FROM schedules WHERE Email = {$_SESSION['email']}");
         if($stmt->execute()){
             if ($res->rowCount() > 0) { 
                 while ($row = $res->fetch()) { 
