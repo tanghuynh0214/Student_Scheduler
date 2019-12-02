@@ -96,9 +96,8 @@ else {
                     "Schedules(Email, Schedule type, Start date, End date, " .
                         "Mon (start time), Mon (end time), Tues (start time), Tues (end time), Wed (start time), Wed (end time), Thurs (start time), Thurs (end time), Fri (start time), Fri (end time)) " .
                     "VALUES " .
-                        "({$_SESSION["email"]}, $shiftType, " .
-                            "$startshiftM, $endshiftM, $startshiftT, $endshiftT, $startshiftW, $endshiftW, $startshiftH, $endshiftH, $startshiftF, $endshiftF)");
-                if($stmt->execute()){
+                        "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"); //14 ?s
+                if($stmt->execute(array($_SESSION["email"], $shiftType, $startshiftM, $endshiftM, $startshiftT, $endshiftT, $startshiftW, $endshiftW, $startshiftH, $endshiftH, $startshiftF, $endshiftF))){
                     echo("Added schedule {$_SESSION["email"]} $shiftType " .
                         "Mon: $startshiftM - $endshiftM Tues: $startshiftT - $endshiftT Wed: $startshiftW - $endshiftW Thurs: $startshiftH - $endshiftH Fri: $startshiftF -$endshiftF");
                 }
@@ -166,15 +165,17 @@ else {
                     // run SQL statement to fetch credentials with matching email
                     $stmt = $conn->prepare("UPDATE Schedules " .
                         "SET" . 
-                            "Email = {$_SESSION['email']}, Schedule type = $shiftType2, " .
-                            "Mon (start time) = $startshiftM2, Mon (end time) = $endshiftM2, Tues (start time) = $startshiftT2, Tues (end time) = $endshiftT2, " . 
-                            "Wed (start time) = $startshiftW2, Wed (end time) = $endshiftW2, Thurs (start time) = $startshiftH2, Thurs (end time) = $endshiftH2, " . 
-                            "Fri (start time) = $startshiftF2, Fri (end time) = $endshiftF2" .
-                        "WHERE Email = {$_SESSION['email']} and Schedule type = $shiftType and " .
-                            "Mon (start time) = $startshiftM and Mon (end time) = $endshiftM and Tues (start time) = $startshiftT and Tues (end time) = $endshiftT and " . 
-                            "Wed (start time) = $startshiftW and Wed (end time) = $endshiftW and Thurs (start time) = $startshiftH and Thurs (end time) = $endshiftH and " . 
-                            "Fri (start time) = $startshiftF and Fri (end time) = $endshiftF");
-                    if($stmt->execute()){
+                            "Email = ?, Schedule type = ?, " .
+                            "Mon (start time) = ?, Mon (end time) = ?, Tues (start time) = ?, Tues (end time) = ?, " . 
+                            "Wed (start time) = ?, Wed (end time) = ?, Thurs (start time) = ?, Thurs (end time) = ?, " . 
+                            "Fri (start time) = ?, Fri (end time) = ?" .
+                        "WHERE Email = ? and Schedule type = ? and " .
+                            "Mon (start time) = ? and Mon (end time) = ? and Tues (start time) = ? and Tues (end time) = ? and " . 
+                            "Wed (start time) = ? and Wed (end time) = ? and Thurs (start time) = ? and Thurs (end time) = ? and " . 
+                            "Fri (start time) = ? and Fri (end time) = ?");
+                    if($stmt->execute(array($_SESSION["email"], $shiftType2, $startshiftM2, $endshiftM2, $startshiftT2, $endshiftT2, $startshiftW2, $endshiftW2, $startshiftH2, $endshiftH2, $startshiftF2, $endshiftF2,
+                        $_SESSION["email"], $shiftType, $startshiftM, $endshiftM, $startshiftT, $endshiftT, $startshiftW, $endshiftW, $startshiftH, $endshiftH, $startshiftF, $endshiftF))){
+
                         echo("Changed schedule {$_SESSION["email"]} $shiftType " .
                         "Mon: $startshiftM - $endshiftM Tues: $startshiftT - $endshiftT Wed: $startshiftW - $endshiftW Thurs: $startshiftH - $endshiftH Fri: $startshiftF -$endshiftF to " .
                         "schedule {$_SESSION["email"]} $shiftType2 " .
@@ -194,11 +195,11 @@ else {
                 # delete button was clicked
                 // run SQL statement to fetch credentials with matching email
                 $stmt = $conn->prepare("DELETE FROM Schedules " .
-                    "WHERE Email = {$_SESSION['email']} and Schedule type = $shiftType and " .
-                        "Mon (start time) = $startshiftM and Mon (end time) = $endshiftM and Tues (start time) = $startshiftT and Tues (end time) = $endshiftT and " . 
-                        "Wed (start time) = $startshiftW and Wed (end time) = $endshiftW and Thurs (start time) = $startshiftH and Thurs (end time) = $endshiftH and " . 
-                        "Fri (start time) = $startshiftF and Fri (end time) = $endshiftF");
-                if($stmt->execute()){
+                    "WHERE Email = ? and Schedule type = ? and " .
+                        "Mon (start time) = ? and Mon (end time) = ? and Tues (start time) = ? and Tues (end time) = ? and " . 
+                        "Wed (start time) = ? and Wed (end time) = ? and Thurs (start time) = ? and Thurs (end time) = ? and " . 
+                        "Fri (start time) = ? and Fri (end time) = ?");
+                if($stmt->execute(array($_SESSION["email"], $shiftType, $startshiftM, $endshiftM, $startshiftT, $endshiftT, $startshiftW, $endshiftW, $startshiftH, $endshiftH, $startshiftF, $endshiftF)){
                     echo("Deleted schedule {$_SESSION["email"]} $shiftType " .
                         "Mon: $startshiftM - $endshiftM Tues: $startshiftT - $endshiftT Wed: $startshiftW - $endshiftW Thurs: $startshiftH - $endshiftH Fri: $startshiftF -$endshiftF");
                 }

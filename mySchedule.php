@@ -48,8 +48,8 @@
 
         $stmt = $conn->prepare("SELECT * FROM Schedules WHERE Email = ?");
         if($stmt->execute(array($_SESSION['email']))){
-            if ($res->rowCount() > 0) { 
-                while ($row = $res->fetch()) { 
+            if ($stmt->rowCount() > 0) { 
+                while ($row = $stmt->fetch()) { 
                     $currSched = $row['Email'] . " " . $row['Schedule type'] . " " . $row['Start date'] . " " . $row['End date'];
                     //check for default times
                     if (is_null($row['Mon (start time)'])){
