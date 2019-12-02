@@ -16,13 +16,13 @@ $db_username = "root";
 $db_password = "";
 
 //store vars
-$day = $_POST["day"]
-$shiftType = $_POST["shiftType"]
+$day = $_POST["day"];
+$shiftType = $_POST["shiftType"];
 //"if the separator is a slash (/), then the American m/d/y is assumed"
-$startshift = strtotime($_POST["startshift"])
-$endshift = strtotime($_POST["endshift"])
-$startsched = strtotime($_POST["startsched"])
-$endsched = strtotime($_POST["endsched"])
+$startshift = strtotime($_POST["startshift"]);
+$endshift = strtotime($_POST["endshift"]);
+$startsched = strtotime($_POST["startsched"]);
+$endsched = strtotime($_POST["endsched"]);
 
 //check start end of dates
 if($startsched < $endsched && $startshift < $endshift){
@@ -43,11 +43,11 @@ if($startsched < $endsched && $startshift < $endshift){
         // run SQL statement to fetch credentials with matching email
         $stmt = $conn->prepare('');//INSERT INTO ?schedules?(day, shiftType, starttime, endtime, startweek, endweek) VALUES ($day, $shiftType, $startshift, $endshift, $startsched, $endsched)
         if($stmt->execute()){
-            echo("Add schedule for $day, $shiftType, $_POST['startshift'] to $_POST['endshift'] from $_POST['startsched'] to $_POST['endsched']")
+            echo("Add schedule for $day, $shiftType, {$_POST['startshift']} to {$_POST['endshift']} from {$_POST['startsched']} to {$_POST['endsched']}");
         }
         //if couldnt insert redirect to mySchedule
         else {
-            echo "Could not add schedule to database.<br>";
+            echo ("Could not add schedule to database.<br>");
             header("Refresh: 3; url=http://cmsc447/mySchedule.html");
         }
     }
@@ -57,11 +57,11 @@ if($startsched < $endsched && $startshift < $endshift){
         // run SQL statement to fetch credentials with matching email
         $stmt = $conn->prepare('');//UPDATE???
         if($stmt->execute()){
-            echo("Changed schedule for $day, $shiftType, $_POST['startshift'] to $_POST['endshift'] from $_POST['startsched'] to $_POST['endsched'] to .....................................................")
+            echo("Changed schedule for $day, $shiftType, {$_POST['startshift']} to {$_POST['endshift']} from {$_POST['startsched']} to {$_POST['endsched']} to .....................................................");
         }
         //if couldnt insert redirect to mySchedule
         else {
-            echo "Could not change schedule in database.<br>";
+            echo ("Could not change schedule in database.<br>");
             header("Refresh: 3; url=http://cmsc447/mySchedule.html");
         }
     }
@@ -70,7 +70,7 @@ if($startsched < $endsched && $startshift < $endshift){
         // run SQL statement to fetch credentials with matching email
         $stmt = $conn->prepare('');//DELETE FROM ?schedules? WHERE day = $day and shifttype = $shiftType and starttime = $startshift and endtime = $endshift and startweek = $startsched and endweek = $endsched)
         if($stmt->execute()){
-            echo("Deleted schedule for $day, $shiftType, $_POST['startshift'] to $_POST['endshift'] from $_POST['startsched'] to $_POST['endsched']")
+            echo("Deleted schedule for $day, $shiftType, {$_POST['startshift']} to {$_POST['endshift']} from {$_POST['startsched']} to {$_POST['endsched']}");
         }
         //if couldnt insert redirect to mySchedule
         else {
@@ -79,11 +79,11 @@ if($startsched < $endsched && $startshift < $endshift){
         }
     }
     else{
-        echo("How'd you do that?")
+        echo("How'd you do that?");
     }
 }
 else{
-    echo("End time cannot be before start time")
+    echo("End time cannot be before start time");
 }
 ?>
 
