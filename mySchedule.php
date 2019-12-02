@@ -46,8 +46,8 @@
             echo "Connection Failed: " . $e->getMessage();
         }
 
-        $stmt = $conn->prepare("SELECT *  FROM Schedules WHERE Email = {$_SESSION['email']}");
-        if($stmt->execute()){
+        $stmt = $conn->prepare("SELECT * FROM Schedules WHERE Email = ?");
+        if($stmt->execute(array($_SESSION['email']))){
             if ($res->rowCount() > 0) { 
                 while ($row = $res->fetch()) { 
                     $currSched = $row['Email'] . " " . $row['Schedule type'] . " " . $row['Start date'] . " " . $row['End date'];
