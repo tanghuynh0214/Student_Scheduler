@@ -52,19 +52,19 @@
                 while ($row = $stmt->fetch()) { 
                     $currSched = $row['Email'] . " " . $row['Schedule type'] . " " . $row['Start date'] . " " . $row['End date'];
                     //check for default times
-                    if (is_null($row['Mon (start time)'])){
+                    if (!is_null($row['Mon (start time)'])){
                         $currSched = $currSched . " Mon:" . $row['Mon (start time)'] . "-" . $row['Mon (end time)'];
                     }
-                    if (is_null($row['Tues (start time)'])){
+                    if (!is_null($row['Tues (start time)'])){
                         $currSched = $currSched . " Tues:" . $row['Tues (start time)'] . "-" . $row['Tues (end time)'];
                     }
-                    if (is_null($row['Wed (start time)'])){
+                    if (!is_null($row['Wed (start time)'])){
                         $currSched = $currSched . " Wed:" . $row['Wed (start time)'] . "-" . $row['Wed (end time)'];
                     }
-                    if (is_null($row['Thurs (start time)'])){
+                    if (!is_null($row['Thurs (start time)'])){
                         $currSched = $currSched . " Thurs:" . $row['Thurs (start time)'] . "-" .$row['Thurs (end time)'];
                     }
-                    if (is_null($row['Fri (start time)'])){
+                    if (!is_null($row['Fri (start time)'])){
                         $currSched = $currSched . " Fri:" . $row['Fri (start time)'] . "-" .$row['Fri (end time)'];
                     }
                     echo $currSched . "<br>";
