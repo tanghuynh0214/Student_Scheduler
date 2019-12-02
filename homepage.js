@@ -89,7 +89,7 @@ for(var i = 0; i < row; i++)
     // Time period
     if(j==0)
     {
-      miliTime = (startTime + j) % 24;
+      miliTime = startTime % 24;
       actualTime = miliTime % 12;
       if((miliTime < 12 || miliTime == 24) && actualTime < 10)
       {
