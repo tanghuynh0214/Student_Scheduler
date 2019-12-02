@@ -10,9 +10,9 @@ session_start();
 // database information
 $host = "localhost";
 $port = "3307";
-$db = "student_scheduler";
-$db_username = "root";
-$db_password = "";
+$db = "Scheduler";
+$db_username = "Scheduler";
+$db_password = "0q7L3ynn2YLwRJey";
 
 // validate input and store into variables
 $in_email = validate($_POST["email"]);
@@ -49,18 +49,18 @@ if(!empty($fetched_password)) {
     if($in_password == $fetched_password) {
         $_SESSION["email"] = $in_email;
         echo "Login Successful.<br>";
-        header("Refresh: 3; url=homepage.php");
+        header("Refresh: 3; url=http://speaksnas1.synology.me/homepage.php");
     }
     // if comparison fails, redirect to authentication page again
     else {
         echo "Login Failed: Wrong Password.<br>";
-        header("Refresh: 3; url=auth");
+        header("Refresh: 3; url=http://speaksnas1.synology.me/auth");
     }
 }
 // if email not found in database, redirect to authentication page again
 else {
     echo "Incorrect Email.<br>";
-    header("Refresh: 3; url=auth");
+    header("Refresh: 3; url=http://speaksnas1.synology.me/auth");
 }
 
 ?>
