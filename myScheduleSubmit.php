@@ -15,9 +15,9 @@ session_start();
 
 // database information
 $host = "localhost:3307";
-$db = "student_scheduler";
-$db_username = "root";
-$db_password = "";
+$db = "Scheduler";
+$db_username = "Scheduler";
+$db_password = "0q7L3ynn2YLwRJey";
 
 if(!isset($_SESSION['email'])) {
     echo "You're not logged in.<br>";

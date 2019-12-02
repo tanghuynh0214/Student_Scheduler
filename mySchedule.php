@@ -25,6 +25,12 @@
   <!--Display current schedule-->
   <?php
     session_start();
+
+    $host = "localhost:3307";
+    $db = "Scheduler";
+    $db_username = "Scheduler";
+    $db_password = "0q7L3ynn2YLwRJey";
+
     if(!isset($_SESSION['email'])) {
       echo "You're not logged in.<br>";
     }
