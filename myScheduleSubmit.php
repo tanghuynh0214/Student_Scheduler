@@ -169,7 +169,7 @@ else {
                             "Email = {$_SESSION['email']}, Schedule type = $shiftType2, " .
                             "Mon (start time) = $startshiftM2, Mon (end time) = $endshiftM2, Tues (start time) = $startshiftT2, Tues (end time) = $endshiftT2, " . 
                             "Wed (start time) = $startshiftW2, Wed (end time) = $endshiftW2, Thurs (start time) = $startshiftH2, Thurs (end time) = $endshiftH2, " . 
-                            "Fri (start time) = $startshiftF2, Fri (end time) = $endshiftF2"
+                            "Fri (start time) = $startshiftF2, Fri (end time) = $endshiftF2" .
                         "WHERE Email = {$_SESSION['email']} and Schedule type = $shiftType and " .
                             "Mon (start time) = $startshiftM and Mon (end time) = $endshiftM and Tues (start time) = $startshiftT and Tues (end time) = $endshiftT and " . 
                             "Wed (start time) = $startshiftW and Wed (end time) = $endshiftW and Thurs (start time) = $startshiftH and Thurs (end time) = $endshiftH and " . 
@@ -187,7 +187,7 @@ else {
                     }
                 }
                 else{
-                    echo("Select the day(s) to edit to.")
+                    echo("Select the day(s) to edit to.");
                 }
             }
             elseif (isset($_POST["delete"])) {
@@ -213,7 +213,7 @@ else {
             }
         }
         else{
-            echo("Select a day(s).")
+            echo("Select a day(s).");
         }
     }
     else{

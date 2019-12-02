@@ -67,10 +67,11 @@
             else{
                 echo "You have no current schedules.";
             }
+        }
     }
   ?>
   <input type="checkbox" name="Check to edit" id="cedit" onclick="displayEdit()"> Check to edit<br>
-  <form id="mySchedForm" action="myScheduleGet.php" method="POST">
+  <form id="mySchedForm" action="myScheduleSubmit.php" method="POST">
       <!--Options: MTWThF/(reg/temp/absent)/shift(start,end)/days(start,end)-->
       <input type="radio" name="shiftType" value="regular"> Regular<br>
       <input type="radio" name="shiftType" value="temporary"> Temporary<br>
