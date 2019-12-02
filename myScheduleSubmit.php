@@ -115,20 +115,70 @@ else {
                 $days2 = "";
                 if(!empty($_POST['day2'])) {
                     foreach($_POST['day2'] as $dow) {
-                            $days = $days . $dow;
+                            $days2 = $days2 . $dow;
                     }
                     $shiftType = $_POST["shiftType2"];
-                    //"if the separator is a slash (/), then the American m/d/y is assumed"
-                    $startshift = strtotime($_POST["startshift2"]);
-                    $endshift = strtotime($_POST["endshift2"]);
-                    $startsched = strtotime($_POST["startsched2"]);
-                    $endsched = strtotime($_POST["endsched2"]);
+
+                    //get times
+                    $startshiftM2 = $_POST["startshiftM2"];
+                    $endshiftM2 = $_POST["endshiftM2"];
+                    $startshiftT2 = $_POST["startshiftT2"];
+                    $endshiftT2 = $_POST["endshiftT2"];
+                    $startshiftW2 = $_POST["startshiftW2"];
+                    $endshiftW2 = $_POST["endshiftW2"];
+                    $startshiftH2 = $_POST["startshiftH2"];
+                    $endshiftH2 = $_POST["endshiftH2"];
+                    $startshiftF2 = $_POST["startshiftF2"];
+                    $endshiftF2 = $_POST["endshiftF2"];
+
+                    $startsched2 = $_POST["startsched2"];
+                    $endsched2 = $_POST["endsched2"];
+
+                    //check times set
+                    $validM = (strtotime($_POST["startshiftM2"]) < strtotime($_POST["endshiftM2"]) && strpos($days2, 'M') !== false) || strpos($days2, 'M') === false;
+                    $validT = (strtotime($_POST["startshiftT2"]) < strtotime($_POST["endshiftT2"]) && strpos($days2, 'T') !== false) || strpos($days2, 'T') === false;
+                    $validW = (strtotime($_POST["startshiftW2"]) < strtotime($_POST["endshiftW2"]) && strpos($days2, 'W') !== false) || strpos($days2, 'W') === false;
+                    $validH = (strtotime($_POST["startshiftH2"]) < strtotime($_POST["endshiftH2"]) && strpos($days2, 'H') !== false) || strpos($days2, 'H') === false;
+                    $validF = (strtotime($_POST["startshiftF2"]) < strtotime($_POST["endshiftF2"]) && strpos($days2, 'F') !== false) || strpos($days2, 'F') === false;
+
+                    //set times to default value if not set
+                    if(strpos($days2, 'M') === false){
+                        $startshiftM2 = null;
+                        $endshiftM2 = null;
+                    }
+                    if(strpos($days2, 'T') === false){
+                        $startshiftT2 = null;
+                        $endshiftT2 = null;
+                    }
+                    if(strpos($days2, 'W') === false){
+                        $startshiftW2 = null;
+                        $endshiftW2 = null;
+                    }
+                    if(strpos($days2, 'H') === false){
+                        $startshiftH2 = null;
+                        $endshiftH2 = null;
+                    }
+                    if(strpos($days2, 'F') === false){
+                        $startshiftF2 = null;
+                        $endshiftF2 = null;
+                    }
 
                     // run SQL statement to fetch credentials with matching email
-                    $stmt = $conn->prepare("");//UPDATE???
+                    $stmt = $conn->prepare("UPDATE Schedules " .
+                        "SET" . 
+                            "Email = {$_SESSION['email']}, Schedule type = $shiftType2, " .
+                            "Mon (start time) = $startshiftM2, Mon (end time) = $endshiftM2, Tues (start time) = $startshiftT2, Tues (end time) = $endshiftT2, " . 
+                            "Wed (start time) = $startshiftW2, Wed (end time) = $endshiftW2, Thurs (start time) = $startshiftH2, Thurs (end time) = $endshiftH2, " . 
+                            "Fri (start time) = $startshiftF2, Fri (end time) = $endshiftF2"
+                        "WHERE Email = {$_SESSION['email']} and Schedule type = $shiftType and " .
+                            "Mon (start time) = $startshiftM and Mon (end time) = $endshiftM and Tues (start time) = $startshiftT and Tues (end time) = $endshiftT and " . 
+                            "Wed (start time) = $startshiftW and Wed (end time) = $endshiftW and Thurs (start time) = $startshiftH and Thurs (end time) = $endshiftH and " . 
+                            "Fri (start time) = $startshiftF and Fri (end time) = $endshiftF");
                     if($stmt->execute()){
-                        echo("Changed schedule for $days, $shiftType, {$_POST["startshift"]} to {$_POST["endshift"]} from {$_POST["startsched"]} to {$_POST["endsched"]} to " .
-                            "$days2, $shiftType2, {$_POST["startshift2"]} to {$_POST["endshift2"]} from {$_POST["startsched2"]} to {$_POST["endsched2"]}");
+                        echo("Changed schedule {$_SESSION["email"]} $shiftType " .
+                        "Mon: $startshiftM - $endshiftM Tues: $startshiftT - $endshiftT Wed: $startshiftW - $endshiftW Thurs: $startshiftH - $endshiftH Fri: $startshiftF -$endshiftF to " .
+                        "schedule {$_SESSION["email"]} $shiftType2 " .
+                        "Mon: $startshiftM2 - $endshiftM2 Tues: $startshiftT2 - $endshiftT2 Wed: $startshiftW2 - $endshiftW2 Thurs: $startshiftH2 - $endshiftH2 Fri: $startshiftF2 -$endshiftF2");
                     }
                     //if couldnt insert redirect to mySchedule
                     else {
