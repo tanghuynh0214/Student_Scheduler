@@ -4,9 +4,14 @@ var rowCell = ["tblRow1", "tblRow2", "tblRow3", "tblRow4", "tblRow5", "tblRow6",
 
 var OFFSET = 1;
 
+var startTime = 8;                //start time variable used for calculations
+var miliTime = 0;
+var actualTime = 0;               //actual time variable being displayed
+
 var sundayCol, mondayCol, tuesdayCol, wednesdayCol, thursdayCol, fridayCol, saturdayCol = '';
 var cellSunday, cellMonday, cellTuesday, cellWednesday, cellThursday, cellFriday, cellSaturday = '';
-
+var timeOne, timeTwo, timeThree, timeFour, timeFive, timeSix, timeSeven, timeEight, timeNine, timeTen = '';
+var slotOne, slotTwo, slotThree, slotFour = '';
 // creating table and seting setting attribute
 var scheduler = document.createElement('table');
 scheduler.setAttribute('id', 'calender');
@@ -117,7 +122,7 @@ while(counter < DAYS_IN_WEEK)
 }
 
 //Creating data cells of table
-for(var i = 0; i < 10; i++)
+for(var i = 0; i < 11; i++)
 {
   // creating table row (cells)
   var cellRow = document.createElement('tr');
@@ -125,8 +130,52 @@ for(var i = 0; i < 10; i++)
   document.getElementById('calender').appendChild(cellRow);
   for(var j = 0; j < 8; j++)
   {
-    var dataCell = document.createElement('td');
-    dataCell.setAttribute('class','dataCells');
-    document.getElementById(rowCell[i]).appendChild(dataCell);
+    if(j==0)
+    {
+      // miliTime = (startTime + j) % 24;
+      // actualTime = miliTime % 12;
+      //
+      // if((miliTime < 12 || miliTime == 24) && actualTime < 10)
+      // {
+      //   timeOne = document.createElement('td');
+      //   timeOne.setAttribute('id','timeOne');
+      //   slotOne = document.createTextNode('0' + actualTime + ':00 AM');
+      //   timeOne.appendChild(slotOne);
+      //   document.getElementById('calender').appendChild(slotOne);
+      // }
+      // else if((miliTime < 12 || miliTime == 24) && actualTime >= 10)
+      // {
+      //   timeTwo = document.createElement('td');
+      //   timeTwo.setAttribute('id','timeTwo');
+      //   slotTwo = document.createTextNode(actualTime + ':00 AM');
+      //   timeTwo.appendChild(slotTwo);
+      //   document.getElementById('calender').appendChild(slotTwo);
+      // }
+      // else if ((miliTime < 24 || miliTime == 12)  && actualTime < 10)
+      // {
+      //   timeThree = document.createElement('td');
+      //   timeThree.setAttribute('id','timeThree');
+      //   slotThree = document.createTextNode('0' + actualTime + ':00 PM');
+      //   timeThree.appendChild(slotThree);
+      //   document.getElementById('calender').appendChild(slotThree);
+      // }
+      // else if ((miliTime < 24 || miliTime == 12) && actualTime >= 10)
+      // {
+      //   timeFour = document.createElement('td');
+      //   timeFour.setAttribute('id','timeFour');
+      //   slotFour = document.createTextNode(actualTime + ':00 PM');
+      //   timeFour.appendChild(slotFour);
+      //   document.getElementById('calender').appendChild(slotFour);
+      // }
+      // startTime++;
+
+    }
+    else
+    {
+      var dataCell = document.createElement('td');
+      dataCell.setAttribute('class','dataCells');
+      document.getElementById(rowCell[i]).appendChild(dataCell);
+    }
+
   }
 }

@@ -13,9 +13,9 @@ var actualTime = 0;               //actual time variable being displayed
 // Calculating Date
 var date = new Date();
 var currMonth = date.getMonth();
-var currDay = 1;
-// var currDate = date.getDate();
-var currDate = 15;
+var currDay = date.getDay();
+var currDate = date.getDate();
+// var currDate = 15;
 
 var prevMonth = '';
 var prevDay = '';
@@ -29,46 +29,28 @@ console.log(currMonth);
 console.log(currDay);
 console.log(currDate);
 
+var counter = 0;
+var DAYS_IN_WEEK = 7;
+
+//start dates on sunday
+beginDate = currDate - currDay;
+beginDay = currDay - currDay;
+
+if(beginDate < 1)
+{
+
+}
+
 // For loop to create a header of table
 for(var i = 0; i < col; i++)
 {
-  if(i == 0)
+  if(i==1)
   {
     table += '<th>' + header[i] + '</th>';
   }
-  else if(i != 0)
+  else if(i!=1)
   {
-    if(currDay == 0)
-    {
-      table += '<th>' + header[1] + '<br>' + currDate + 1 + '</th>';
-    }
-    else if (currDay == 1)
-    {
-      table += '<th>' + header[2] + '<br>' + currDate + 2 + '</th>';
-
-    }
-    else if (currDay == 2)
-    {
-      table += '<th>' + header[3] + '<br>' + currDate + 3 + '</th>';
-    }
-    else if (currDay == 3)
-    {
-      table += '<th>' + header[4] + '<br>' + currDate + 4 + '</th>';
-    }
-    else if (currDay == 4)
-    {
-      table += '<th>' + header[5] + '<br>' + currDate + 5 + '</th>';
-    }
-    else if (currDay == 5)
-    {
-      table += '<th>' + header[6] + '<br>' + currDate + 6 + '</th>';
-    }
-    else if (currDay == 6)
-    {
-      table += '<th>' + header[7] + '<br>' + currDate + 7 + '</th>';
-    }
-    currDay++;
-    currDate++;
+    if(i==)
   }
 }
 // For loop to create data cells of table
