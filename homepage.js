@@ -1,7 +1,5 @@
-console.log("hello word");
 // ---------------Creating a table for homepage.html------------------
 var header = ["Time Period", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
 var table = '';
 var row = 11;
@@ -12,47 +10,87 @@ var actualTime = 0;               //actual time variable being displayed
 
 // Calculating Date
 var date = new Date();
+var beginDate = '';
+var beginDay = '';
+var beginMonth = '';
+var beginYear = '';
+
+var prevMonthLastDay = '';
+var currMonthLastDay = '';
+
+var currYear = date.getFullYear();
 var currMonth = date.getMonth();
 var currDay = date.getDay();
 var currDate = date.getDate();
-// var currDate = 15;
 
-var prevMonth = '';
-var prevDay = '';
-var prevDate = '';
-
-var nextMonth;
-var nextDay;
-var nextDate;
-
+console.log(currYear);
 console.log(currMonth);
 console.log(currDay);
 console.log(currDate);
 
+
 var counter = 0;
 var DAYS_IN_WEEK = 7;
 
-//start dates on sunday
+// Begin dates on sunday
+beginYear = currYear;
+beginMonth = currMonth;
 beginDate = currDate - currDay;
 beginDay = currDay - currDay;
 
+// Validate if date carries to previous month
 if(beginDate < 1)
 {
+  console.log('Nuuuu');
+  prevMonthLastDay = new Date(currYear,currMonth, 0).getDate();          // grabs last day of previous month
+  beginDate = beginDate + prevMonthLastDay;
+  beginMonth--;
+  console.log('beginMonth: '+beginMonth);
+  console.log('beginDate: ' + beginDate);
 
+  //Validate if the month carries to previous year
+  if(beginMonth < 0)
+  {
+    beginMonth = beginMonth + 12;
+    beginYear--;
+  }
 }
+
+ // Grabs the last day of current month
+currMonthLastDay = new Date(currYear,currMonth+1, 0).getDate();
 
 // For loop to create a header of table
 for(var i = 0; i < col; i++)
 {
-  if(i==1)
+  if(i==0)
   {
     table += '<th>' + header[i] + '</th>';
   }
-  else if(i!=1)
+  else if (i!=0)
   {
-    if(i==)
+    console.log('pre:' + beginDate);
+    beginDay++;
+    beginDate++;
+
+    // Validate if date carries to next month
+    if(beginDate > currMonthLastDay)
+    {
+      console.log('next Month!');
+      beginDate = beginDate - currMonthLastDay;
+      beginMonth++;
+      currMonthLastDay = new Date(beginYear,beginMonth+1, 0).getDate();       // grabs the last day of current month
+
+      // Validate if month carries over to next year
+      if(beginMonth > 11)
+      {
+        beginMonth = beginMonth % 12;
+        beginYear++;
+      }
+    }
+    table += '<th>' + header[i] + '<br> ' + (beginMonth + 1) + '/' + beginDate + '</th>';
   }
 }
+
 // For loop to create data cells of table
 for(var i = 0; i < row; i++)
 {
