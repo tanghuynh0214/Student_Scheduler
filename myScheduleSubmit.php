@@ -55,24 +55,24 @@ else {
 
         //set times to default value if not set
         if(strpos($days, "M") === false){
-            $startshiftM = null;
-            $endshiftM = null;
+            $startshiftM = "00:00";
+            $endshiftM = "00:00";
         }
         if(strpos($days, "T") === false){
-            $startshiftT = null;
-            $endshiftT = null;
+            $startshiftT = "00:00";
+            $endshiftT = "00:00";
         }
         if(strpos($days, "W") === false){
-            $startshiftW = null;
-            $endshiftW = null;
+            $startshiftW = "00:00";
+            $endshiftW = "00:00";
         }
         if(strpos($days, "H") === false){
-            $startshiftH = null;
-            $endshiftH = null;
+            $startshiftH = "00:00";
+            $endshiftH = "00:00";
         }
         if(strpos($days, "F") === false){
-            $startshiftF = null;
-            $endshiftF = null;
+            $startshiftF = "00:00";
+            $endshiftF = "00:00";
         }
 
         //check start-end of times
@@ -141,24 +141,24 @@ else {
 
                     //set times to default value if not set
                     if(strpos($days2, "M") === false){
-                        $startshiftM2 = null;
-                        $endshiftM2 = null;
+                        $startshiftM2 = "00:00";
+                        $endshiftM2 = "00:00";
                     }
                     if(strpos($days2, "T") === false){
-                        $startshiftT2 = null;
-                        $endshiftT2 = null;
+                        $startshiftT2 = "00:00";
+                        $endshiftT2 = "00:00";
                     }
                     if(strpos($days2, "W") === false){
-                        $startshiftW2 = null;
-                        $endshiftW2 = null;
+                        $startshiftW2 = "00:00";
+                        $endshiftW2 = "00:00";
                     }
                     if(strpos($days2, "H") === false){
-                        $startshiftH2 = null;
-                        $endshiftH2 = null;
+                        $startshiftH2 = "00:00";
+                        $endshiftH2 = "00:00";
                     }
                     if(strpos($days2, "F") === false){
-                        $startshiftF2 = null;
-                        $endshiftF2 = null;
+                        $startshiftF2 = "00:00";
+                        $endshiftF2 = "00:00";
                     }
 
                     // run SQL statement to fetch credentials with matching email
@@ -172,8 +172,11 @@ else {
                             "`Mon (start time)` = ? and `Mon (end time)` = ? and `Tues (start time)` = ? and `Tues (end time)` = ? and " . 
                             "`Wed (start time)` = ? and `Wed (end time)` = ? and `Thurs (start time)` = ? and `Thurs (end time)` = ? and " . 
                             "`Fri (start time)` = ? and `Fri (end time)` = ?");
-                    if($stmt->execute(array($_SESSION["email"], $shiftType2, $startsched2, $endsched2, $startshiftM2, $endshiftM2, $startshiftT2, $endshiftT2, $startshiftW2, $endshiftW2, $startshiftH2, $endshiftH2, $startshiftF2, $endshiftF2,
-                        $_SESSION["email"], $shiftType, $startsched, $endsched, $startshiftM, $endshiftM, $startshiftT, $endshiftT, $startshiftW, $endshiftW, $startshiftH, $endshiftH, $startshiftF, $endshiftF))){
+                    if($stmt->execute(array(
+                        $_SESSION["email"], $shiftType2, $startsched2, $endsched2, 
+                        $startshiftM2, $endshiftM2, $startshiftT2, $endshiftT2, $startshiftW2, $endshiftW2, $startshiftH2, $endshiftH2, $startshiftF2, $endshiftF2,
+                        $_SESSION["email"], $shiftType, 
+                        $startsched, $endsched, $startshiftM, $endshiftM, $startshiftT, $endshiftT, $startshiftW, $endshiftW, $startshiftH, $endshiftH, $startshiftF, $endshiftF))){
 
                         echo("Changed schedule {$_SESSION["email"]} $shiftType $startsched to $endsched " .
                         "Mon: $startshiftM - $endshiftM Tues: $startshiftT - $endshiftT Wed: $startshiftW - $endshiftW Thurs: $startshiftH - $endshiftH Fri: $startshiftF -$endshiftF to " .
