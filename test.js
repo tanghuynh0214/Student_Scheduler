@@ -12,6 +12,7 @@ var sundayCol, mondayCol, tuesdayCol, wednesdayCol, thursdayCol, fridayCol, satu
 var cellSunday, cellMonday, cellTuesday, cellWednesday, cellThursday, cellFriday, cellSaturday = '';
 var timeOne, timeTwo, timeThree, timeFour, timeFive, timeSix, timeSeven, timeEight, timeNine, timeTen = '';
 var slotOne, slotTwo, slotThree, slotFour = '';
+
 // creating table and seting setting attribute
 var scheduler = document.createElement('table');
 scheduler.setAttribute('id', 'calender');
@@ -130,8 +131,11 @@ for(var i = 0; i < 11; i++)
   document.getElementById('calender').appendChild(cellRow);
   for(var j = 0; j < 8; j++)
   {
-    if(j==0)
-    {
+    var dataCell = document.createElement('td');
+    dataCell.setAttribute('class','dataCells');
+    document.getElementById(rowCell[i]).appendChild(dataCell);
+    // if(j==0)
+    // {
       // miliTime = (startTime + j) % 24;
       // actualTime = miliTime % 12;
       //
@@ -169,13 +173,13 @@ for(var i = 0; i < 11; i++)
       // }
       // startTime++;
 
-    }
-    else
-    {
-      var dataCell = document.createElement('td');
-      dataCell.setAttribute('class','dataCells');
-      document.getElementById(rowCell[i]).appendChild(dataCell);
-    }
+    // }
+    // else
+    // {
+    //   var dataCell = document.createElement('td');
+    //   dataCell.setAttribute('class','dataCells');
+    //   document.getElementById(rowCell[i]).appendChild(dataCell);
+    // }
 
   }
 }
