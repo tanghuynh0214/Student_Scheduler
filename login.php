@@ -1,9 +1,12 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <body>
 
 <?php
-
 // database information
 $host = "localhost";
 $port = "3307";
@@ -46,7 +49,7 @@ if(!empty($fetched_password)) {
     if($in_password == $fetched_password) {
         $_SESSION["email"] = $in_email;
         echo "Login Successful.<br>";
-        header("Refresh: 3; url=http://speaksnas1.synology.me/homepage");
+        header("Refresh: 3; url=http://speaksnas1.synology.me/homepage.php");
     }
     // if comparison fails, redirect to authentication page again
     else {
