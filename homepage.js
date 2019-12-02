@@ -23,12 +23,6 @@ var currMonth = date.getMonth();
 var currDay = date.getDay();
 var currDate = date.getDate();
 
-console.log(currYear);
-console.log(currMonth);
-console.log(currDay);
-console.log(currDate);
-
-
 var counter = 0;
 var DAYS_IN_WEEK = 7;
 
@@ -41,12 +35,9 @@ beginDay = currDay - currDay;
 // Validate if date carries to previous month
 if(beginDate < 1)
 {
-  console.log('Nuuuu');
   prevMonthLastDay = new Date(currYear,currMonth, 0).getDate();          // grabs last day of previous month
   beginDate = beginDate + prevMonthLastDay;
   beginMonth--;
-  console.log('beginMonth: '+beginMonth);
-  console.log('beginDate: ' + beginDate);
 
   //Validate if the month carries to previous year
   if(beginMonth < 0)
@@ -68,14 +59,12 @@ for(var i = 0; i < col; i++)
   }
   else if (i!=0)
   {
-    console.log('pre:' + beginDate);
     beginDay++;
     beginDate++;
 
     // Validate if date carries to next month
     if(beginDate > currMonthLastDay)
     {
-      console.log('next Month!');
       beginDate = beginDate - currMonthLastDay;
       beginMonth++;
       currMonthLastDay = new Date(beginYear,beginMonth+1, 0).getDate();       // grabs the last day of current month
