@@ -24,7 +24,7 @@ session_start();
     <!-- Buttons -->
     <div class="buttonContent">
         <div class = "button1">
-        <a href="mySchedule.html"> My Schedules </a>
+        <a href="mySchedule.php"> My Schedules </a>
         </div>
         <div class="button2">
         <a href="http://speaksnas1.synology.me/auth"> Login </a>
