@@ -59,8 +59,6 @@ for(var i = 0; i < col; i++)
   }
   else if (i!=0)
   {
-    beginDay++;
-    beginDate++;
 
     // Validate if date carries to next month
     if(beginDate > currMonthLastDay)
@@ -77,6 +75,8 @@ for(var i = 0; i < col; i++)
       }
     }
     table += '<th>' + header[i] + '<br> ' + (beginMonth + 1) + '/' + beginDate + '</th>';
+    beginDay++;
+    beginDate++;
   }
 }
 
