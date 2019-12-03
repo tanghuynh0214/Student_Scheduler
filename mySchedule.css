@@ -1,0 +1,126 @@
+#header
+{
+  font-weight: bold;
+  font-size: 35px;
+  letter-spacing: 1px;
+  text-align: center;
+  margin-bottom: 10px;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+
+  border-collapse: collapse;
+}
+
+#calender
+{
+  width: 80%;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  text-align:center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+#calender td, #calender th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  width: 10% ;
+}
+
+#calender tr:nth-child(even){
+	background-color: #f2f2f2;
+}
+
+#calender tr:nth-child(odd){
+	background-color: #ffffff;
+}
+
+#calender tr:hover {
+	background-color: #ddd;
+}
+
+#calender th {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #808080;
+  color: white;
+  text-align:center;
+}
+
+.buttonContent
+{
+	display: block;
+    max-width: 300px;
+    margin: auto;
+    margin-bottom: 10px;
+
+}
+
+.buttonContent2
+{
+	display: block;
+    max-width: 500px;
+    margin: auto;
+	margin-left: 43%;
+	margin-bottom: 10px;
+    
+}
+
+.button1 {
+	background-color: #555555; /* black */
+	text-align: center;
+	border: none;
+	color: white;
+	padding: 14px 40px;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+}
+
+.btn-group .buttons {
+  background-color: #4CAF50; /* Green */
+  border: 1px solid green;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  float: left;
+  margin-bottom: 10px;
+}
+
+.btn-group .button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+.btn-group .button:hover {
+  background-color: #3e8e41;
+}
+
+.content {
+  max-width: 600px;
+  margin: auto;
+}
+
+.radiopad {
+	padding-right: 5px;	
+	padding-left: 5px;	
+}
+
+.schedgroup {
+	text-align: center;
+	margin-right: 70px;
+}
+
+.dategroup {
+	text-align: center;
+	margin-right: 80px;
+}
+
+.idgroup {
+	text-align: center;
+}

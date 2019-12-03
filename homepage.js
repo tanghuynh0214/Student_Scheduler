@@ -1,57 +1,29 @@
 // ---------------Creating a table for homepage.html------------------
-var header = ["Time Period", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+var header = ["Time Period", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
 
 var table = '';
 var row = 11;
-var col = 8;
+var col = 6;
 var startTime = 8;                //start time variable used for calculations
 var miliTime = 0;
 var actualTime = 0;               //actual time variable being displayed
 
 // Calculating Date
 var date = new Date();
-var beginDate = '';
-var beginDay = '';
-var beginMonth = '';
-var beginYear = '';
-
-var prevMonthLastDay = '';
-var currMonthLastDay = '';
-
-var currYear = date.getFullYear();
-var currMonth = date.getMonth();
-var currDay = date.getDay();
-var currDate = date.getDate();
 
 var counter = 0;
 var DAYS_IN_WEEK = 7;
 
 // Begin dates on sunday
-beginYear = currYear;
-beginMonth = currMonth;
-beginDate = currDate - currDay;
-beginDay = currDay - currDay;
 
-// Validate if date carries to previous month
-if(beginDate < 1)
-{
-  prevMonthLastDay = new Date(currYear,currMonth, 0).getDate();          // grabs last day of previous month
-  beginDate = beginDate + prevMonthLastDay;
-  beginMonth--;
+var curr = new Date; // get current date
+var first = curr.getDate() - curr.getDay(); // First day is the day of the month - the day of the week
 
-  //Validate if the month carries to previous year
-  if(beginMonth < 0)
-  {
-    beginMonth = beginMonth + 12;
-    beginYear--;
-  }
-}
+var firstday = new Date(curr.setDate(first)); // Should contain the date of Sunday
 
- // Grabs the last day of current month
-currMonthLastDay = new Date(currYear,currMonth+1, 0).getDate();
+var day = 1; // Used as an offset. If you want your calender to start on Sunday, day = 0. If you want it to start on Monday, day = 1
 
-// For loop to create a header of table
-for(var i = 0; i < col; i++)
+for(var i = 0; i < header.length; i++)
 {
   if(i==0)
   {
@@ -59,29 +31,13 @@ for(var i = 0; i < col; i++)
   }
   else if (i!=0)
   {
-    beginDay++;
-    beginDate++;
-
-    // Validate if date carries to next month
-    if(beginDate > currMonthLastDay)
-    {
-      beginDate = beginDate - currMonthLastDay;
-      beginMonth++;
-      currMonthLastDay = new Date(beginYear,beginMonth+1, 0).getDate();       // grabs the last day of current month
-
-      // Validate if month carries over to next year
-      if(beginMonth > 11)
-      {
-        beginMonth = beginMonth % 12;
-        beginYear++;
-      }
-    }
-    table += '<th>' + header[i] + '<br> ' + (beginMonth + 1) + '/' + beginDate + '</th>';
+    table += '<th>' + header[i] + '<br> ' + (firstday.getMonth() + 1) + '/' + (firstday.getDate() + day++) + '</th>';
   }
 }
 
+
 // For loop to create data cells of table
-for(var i = 0; i < row; i++)
+/*for(var i = 0; i < row; i++)
 {
   table += '<tr>';
   for(var j = 0; j < col; j++)
@@ -101,7 +57,10 @@ for(var i = 0; i < row; i++)
       }
       else if((miliTime < 24 || miliTime == 12)  && actualTime < 10)
       {
-          table += '<td>' + '0' + actualTime + ':00 PM' + '</td>';
+    	if(actualTime == 0) //This if else statement here is purely so that the time does not output as 00:00 PM instead of 12:00 PM
+      		table += '<td>' + '12' + ':00 PM' + '</td>';
+      	else
+    		table += '<td>' + '0' + actualTime + ':00 PM' + '</td>';
       }
       else if((miliTime < 24 || miliTime == 12) && actualTime >= 10)
       {
@@ -115,5 +74,5 @@ for(var i = 0; i < row; i++)
     }
   }
   table += '</tr>';
-}
-document.write("<table border = '1' id = 'calender'>" + table + '</table>');
+}*/
+document.write(table);

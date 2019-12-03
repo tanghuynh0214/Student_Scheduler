@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<link rel="stylesheet" type="text/css" href="auth.css">
+
+<head>
+    <title>Forgot Password</title>
+    <div id="header">
+        <p>Forgot Password</p>
+    </div>
+</head>
+
+<body>
+    <form id="reset-form" action="forgot_pass.php" method="POST">
+        <input type="email" placeholder="Enter email" name="email" maxlength="48" required autofocus>
+        <br>
+        <button type="submit">Reset</button>
+        <button type="button" onclick="window.location.assign('auth.html')">Go Back to Login</button>
+    </form>
+</body>
+
+<footer>
+        <small>&copy;Library Group 5 - Student Scheduler FA2019</small>
+</footer>
+
+</html>
