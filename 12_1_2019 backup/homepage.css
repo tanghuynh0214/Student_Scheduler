@@ -1,0 +1,106 @@
+#buttonz
+{
+	width: 100%;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  text-align:center;
+}
+#header
+{
+  font-weight: bold;
+  font-size: 35px;
+  letter-spacing: 1px;
+  text-align: center;
+  margin-bottom: 10px;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+
+  border-collapse: collapse;
+}
+
+#calender, #timePeriod, #monday, #tuesday, #wednesday, #thursday, #friday, #saturday, #sunday
+{
+  border: 1px solid black;          /* Creates a solid border line */
+}
+
+#timePeriod
+{
+  width: 6%;
+}
+
+#calender
+{
+  width: 100%;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  text-align:center;
+}
+
+#calender td, #calender th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#calender tr:nth-child(even){
+	background-color: #f2f2f2;
+}
+
+#calender tr:hover {
+	background-color: #ddd;
+}
+
+#calender th {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #9370DB;
+  color: white;
+  text-align:center;
+}
+.cell
+{
+  border: 1px solid black;          /* Creates a solid border line */
+	width: 6%;
+}
+footer
+{
+	position: absolute;
+    bottom: 0;
+}
+
+/* ---------------------------Button Content--------------------------------- */
+.buttonContent
+{
+	overflow: auto;
+	height: 100%;
+
+}
+.buttonContent a
+{
+	float: left;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+	background-color: #f2f2f2;
+}
+
+.buttonContent a:hover
+{
+	background-color: white;
+  color: black;
+}
+
+.button1, .button2
+{
+	float: left;
+	margin: 10px;
+	text-align: center;
+}
+
+.button1
+{
+	margin-left: 30%;
+	margin-right: 30%;
+}
