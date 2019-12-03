@@ -9,13 +9,8 @@ session_start();
 <?php
 //TODOs: 
 //how to use text
-//check for 00 not null
-//add ids to schedules
-//delete/edit based on id
-//redirect after submit
 //24hr
 //css
-//id option
 
 
 // database information
@@ -38,6 +33,8 @@ try {
 catch(PDOException $e) {
     echo "Connection Failed: " . $e->getMessage();
 }
+
+try{
 
 if (isset($_POST["delete"])) {
     # delete button was clicked
@@ -135,8 +132,8 @@ elseif(isset($_POST["create"]) || isset($_POST["edit"])){
                 "`Mon (start time)`, `Mon (end time)`, `Tues (start time)`, `Tues (end time)`, `Wed (start time)`, `Wed (end time)`, `Thurs (start time)`, `Thurs (end time)`, `Fri (start time)`, `Fri (end time)`) " .
             "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"); //15 ?s
         if($stmt->execute(array($id, $_SESSION["email"], $shiftType, $startsched, $endsched, $startshiftM, $endshiftM, $startshiftT, $endshiftT, $startshiftW, $endshiftW, $startshiftH, $endshiftH, $startshiftF, $endshiftF))){
-            echo("Added schedule {$_SESSION["email"]} $shiftType $startsched to $endsched " .
-                "Mon: $startshiftM - $endshiftM Tues: $startshiftT - $endshiftT Wed: $startshiftW - $endshiftW Thurs: $startshiftH - $endshiftH Fri: $startshiftF -$endshiftF");
+            echo("Added schedule successfully");
+            header("Refresh: 3; url=http://speaksnas1.synology.me/mySchedule.php");
         }
         //if couldnt insert redirect to mySchedule
         else {
@@ -180,6 +177,18 @@ else{
     echo("How'd you do that?");
     header("Refresh: 3; url=http://speaksnas1.synology.me/mySchedule.php");
 }
+
+}
+catch (PDOException $e){
+    if($e->errorInfo[0] == '23000' && $e->errorInfo[1] == '1062'){
+        echo("Duplicate entry<br>");
+    } 
+    foreach($e->errorInfo as $k){
+        echo($k . "<br>");
+    }
+    header("Refresh: 3; url=http://speaksnas1.synology.me/mySchedule.php");
+}
+
 ?>
 
 </body>

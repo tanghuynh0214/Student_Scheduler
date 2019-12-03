@@ -7,6 +7,9 @@
   </div>
 </head>
 <body>
+
+    <input type="button" text="Go back" onclick="window.location.href = 'http://speaksnas1.synology.me/homepage.html';">
+
   <!--Display current schedule-->
   <form id="mySchedForm" action="myScheduleSubmit.php" method="POST">
     <?php
